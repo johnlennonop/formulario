@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
     const [cpf, setCpf] = useState("")
@@ -23,17 +24,24 @@ const Login = () => {
                     id="cpf"
                     name="cpf"
                     onChange={(event) => setCpf(event.target.value)}
+                    required
                 /> <br />
                 <label htmlFor="senha">Senha: </label>
                 <input
-                    type="text"
+                    type="password"
                     id="senha"
                     name="senha"
                     onChange={(event) => setSenha(event.target.value)}
+                    required
+
                 /> <br />
                 <button type="submit">Entrar</button>
+               
 
             </form>
+            <Link to="/cadastro">Cadastrar</Link>
+             {//<button type="submit">Esqueceu a senha?</button>
+                }
         </>
     )
 }
