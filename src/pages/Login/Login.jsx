@@ -1,6 +1,6 @@
 import { useState } from "react";
 //import { Link } from "react-router-dom";
-
+import styles from "./Login.module.css";
 const Login = () => {
     const [cpf, setCpf] = useState("")
     const [senha, setSenha] = useState("")
@@ -16,31 +16,33 @@ const Login = () => {
     }
     return (
         <>
-            <div className={styles["container"]}>
-                <h1 class="title">Login</h1>
-                <form onSubmit={autenticar} >
-                    <input
-                        type="text"
-                        id="cpf"
-                        name="cpf"
-                        onChange={(event) => setCpf(event.target.value)}
-                        required
-                        placeholder="CPF"
-                    />
-                    <input
-                        type="password"
-                        id="senha"
-                        name="senha"
-                        onChange={(event) => setSenha(event.target.value)}
-                        required
-                        placeholder="senha"
+            <div className={styles["body"]}>
+                <div className={styles["container"]}>
+                    <h1 className={styles["title"]}>Login</h1>
+                    <form onSubmit={autenticar} >
+                        <input
+                            type="text"
+                            id="cpf"
+                            name="cpf"
+                            onChange={(event) => setCpf(event.target.value)}
+                            required
+                            placeholder="CPF"
+                        />
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            onChange={(event) => setSenha(event.target.value)}
+                            required
+                            placeholder="senha"
 
-                    />
-                    <button class="btn" >Entrar</button>
-                    <a href="/cadastro">cadastra-se</a>
+                        />
+                        <button className={styles["btn"]}>Entrar</button>
+                        <a href="/cadastro">cadastra-se</a>
 
 
-                </form>
+                    </form>
+                </div>
             </div>
         </>
     )

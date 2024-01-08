@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
+  margin-top: 50px ;
 }
 
 .container {
@@ -18,18 +18,27 @@
   
   }
   
-  .title {
+  .title2 {
     font-size: 28px;
     font-weight: bold;
     text-align: center;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
   }
   
-  form{
-    flex-direction: column;
+  .form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+
+  .gridContainer{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 5px;
+    margin-bottom: 10px;
     align-items: center;
-    display: flex;
   }
   
   input {
@@ -39,13 +48,7 @@
     border-radius: 10px;
     border: none;
   }
-  
-  a{
-    display: block;
-    text-align: center;
-    margin-top: 5px;
-  }
-   
+     
   .btn {
     background-color: #a1b1ad;
     border: none;
