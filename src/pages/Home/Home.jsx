@@ -1,61 +1,70 @@
 import React, { useState } from "react";
 
 const Home = () => {
-    const [selectedOptions, setSelectedOptions] = useState([]);
+    const [selectedOption, setSelectedOption] = useState("");
 
-    const handleCheckboxChange = (event) => {
-        const { value, checked } = event.target;
+    const handleRadioChange = (event) => {
+        const { value } = event.target;
 
-        // Atualiza o estado das opções selecionadas
-        if (checked) {
-            setSelectedOptions((prevOptions) => [...prevOptions, value]);
-        } else {
-            setSelectedOptions((prevOptions) =>
-                prevOptions.filter((option) => option !== value)
-            );
-        }
+        // Atualiza o estado da opção selecionada
+        setSelectedOption(value);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Aqui você pode usar o estado selectedOptions como desejar
-        console.log("Opções selecionadas:", selectedOptions);
-        window.location.href = "/confirmacao"  
+        // Aqui você pode usar o estado selectedOption como desejar
+        console.log("Opção selecionada:", selectedOption);
+        window.location.href = "/sistema";
+        localStorage.setItem("sistema",selectedOption)
+        
     };
 
     return (
         <>
-            <h1>Sistemas</h1>
+            <h1>Qual o serviço desejado?</h1>
             <form onSubmit={handleSubmit}>
-                <label>Quais sistemas você deseja resetar?</label> <br />
                 <input
-                    type="checkbox"
-                    id="email"
-                    name="sistemas[]"
-                    value="email"
-                    onChange={handleCheckboxChange}
+                    type="radio"
+                    id="perfil"
+                    name="sistemas"
+                    value="perfil"
+                    onChange={handleRadioChange}
+                    checked={selectedOption === "perfil"}
                 />
-                <label htmlFor="email">E-mail Funcional</label> <br />
+                <label htmlFor="perfil">Criação de Perfil</label> <br />
                 <input
-                    type="checkbox"
-                    id="usuario_rede"
-                    name="sistemas[]"
-                    value="usuario_rede"
-                    onChange={handleCheckboxChange}
+                    type="radio"
+                    id="desbloqueio"
+                    name="sistemas"
+                    value="desbloqueio"
+                    onChange={handleRadioChange}
+                    checked={selectedOption === "desbloqueio"}
                 />
-                <label htmlFor="usuario_rede">Usuário de Rede</label> <br />
+                <label htmlFor="desbloqueio">Desbloqueio de Acesso em Sistema</label> <br />
+
                 <input
-                    type="checkbox"
-                    id="extras"
+                    type="radio"
+                    id="reset"
                     name="sistemas[]"
-                    value="extras"
-                    onChange={handleCheckboxChange}
+                    value="reset"
+                    onChange={handleRadioChange}
+                    checked={selectedOption === "reset"}
                 />
-                <label htmlFor="extras">Sistemas de Extras</label> <br />
-                <input type="submit" value="Enviar" />
+                <label htmlFor="reset">Reset de Senha</label> <br />
+                <input
+                    type="radio"
+                    id="acesso"
+                    name="sistemas[]"
+                    value="acesso"
+                    onChange={handleRadioChange}
+                    checked={selectedOption === "acesso"}
+                />
+                <label htmlFor="acesso">Alteração de Nível de Acesso</label> <br />
+                <button type="submit" value="Enviar" disabled={!selectedOption}>Enviar</button>
             </form>
         </>
     );
 };
+
 
 export default Home;

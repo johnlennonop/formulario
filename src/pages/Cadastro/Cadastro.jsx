@@ -22,6 +22,7 @@ const Cadastro = () => {
     }
     return (
         <>
+        <div class="container">
             <h1>Cadastro de Usuário</h1>
             <form onSubmit={cadastrar}>
                 <label htmlFor="cpf">Nome: </label>
@@ -97,6 +98,7 @@ const Cadastro = () => {
                 <button type="submit">Cadastrar</button>
 
             </form>
+            </div>
         </>
     )
 }

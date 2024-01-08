@@ -5,7 +5,11 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-html, body, #root{
-  background-color: #EFEFEF;
-  height: 100%;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
+

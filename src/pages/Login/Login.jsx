@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 const Login = () => {
     const [cpf, setCpf] = useState("")
@@ -16,32 +16,32 @@ const Login = () => {
     }
     return (
         <>
-            <h1>Login</h1>
-            <form onSubmit={autenticar}>
-                <label htmlFor="cpf">CPF: </label>
-                <input
-                    type="text"
-                    id="cpf"
-                    name="cpf"
-                    onChange={(event) => setCpf(event.target.value)}
-                    required
-                /> <br />
-                <label htmlFor="senha">Senha: </label>
-                <input
-                    type="password"
-                    id="senha"
-                    name="senha"
-                    onChange={(event) => setSenha(event.target.value)}
-                    required
+            <div className={styles["container"]}>
+                <h1 class="title">Login</h1>
+                <form onSubmit={autenticar} >
+                    <input
+                        type="text"
+                        id="cpf"
+                        name="cpf"
+                        onChange={(event) => setCpf(event.target.value)}
+                        required
+                        placeholder="CPF"
+                    />
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        onChange={(event) => setSenha(event.target.value)}
+                        required
+                        placeholder="senha"
 
-                /> <br />
-                <button type="submit">Entrar</button>
-               
+                    />
+                    <button class="btn" >Entrar</button>
+                    <a href="/cadastro">cadastra-se</a>
 
-            </form>
-            <Link to="/cadastro">Cadastrar</Link>
-             {//<button type="submit">Esqueceu a senha?</button>
-                }
+
+                </form>
+            </div>
         </>
     )
 }
